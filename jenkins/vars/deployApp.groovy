@@ -13,7 +13,8 @@ pipeline {
     stage('Checkout') {
       steps {
         // clone your project from Git/SVN etc
-        git 'https://github.com/abhi09rawat/pet-clinic-demo.git'
+        sh 'git clone https://github.com/abhi09rawat/pet-clinic-demo.git'
+        //git 'https://github.com/abhi09rawat/pet-clinic-demo.git'
       }
     }
 
