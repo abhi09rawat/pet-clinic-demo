@@ -72,8 +72,8 @@ pipeline {
         // Deploy to cloud providers /local drives /artifactory etc.
         // Deploy to Deploy/prod /test/ etc
       }
-    }
-  }*/
+    }*/
+  }
 
   post {
     success {
