@@ -35,7 +35,7 @@ pipeline {
       steps {
         // build
         sh """
-              cd pet-clinic-demo \
+              cd pet-clinic-demo/spring-petclinic-main \
               ./mvnw spring-boot:build-image
               cd ..
               """
