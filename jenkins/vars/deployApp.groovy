@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'gitops' }
+  agent any
 
   stages {
 
@@ -13,11 +13,11 @@ pipeline {
     stage('Checkout') {
       steps {
         // clone your project from Git/SVN etc
-        git 'https://github.kyndryl.net/devsecops-ams-team/cicd-demo.git'
+        git 'https://github.com/abhi09rawat/pet-clinic-demo.git'
       }
     }
 
-    stage('Static Code Testing') {
+    /*stage('Static Code Testing') {
       steps {
         // Test (Unit test / Automation test(Selenium/Robot framework) / etc.)
         sh """
@@ -28,17 +28,21 @@ pipeline {
                    -X > debug.log
                    """  
       }
-    }
+    }*/
 
     stage('Build and image creation') {
       steps {
         // build
-        sh './mvnw spring-boot:build-image'
+        sh """
+              cd pet-clinic-demo \
+              ./mvnw spring-boot:build-image
+              cd ..
+              """
       }
     }
 
     
-
+/*
     stage('Code Analysis') {
       steps {
         // Static Code analysis (Coverity/ SonarQube /openvas/Nessus etc.)
@@ -69,7 +73,7 @@ pipeline {
         // Deploy to Deploy/prod /test/ etc
       }
     }
-  }
+  }*/
 
   post {
     success {
