@@ -36,9 +36,8 @@ pipeline {
         // build
         sh """
               cd pet-clinic-demo/spring-petclinic-main \
-              chmod -R 755 *
               ./mvnw spring-boot:build-image \
-              cd ..
+              cd ../../
               """
       }
     }
